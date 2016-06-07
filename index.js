@@ -7,7 +7,11 @@ module.exports = function() {
 
   return got(url, { json: true })
     .then(response => {
-      return response.body.body
+      return
+      {
+        status: response.body.status,
+        message: response.body.body
+      }
     })
     .catch(error => {
       return error.response.body
